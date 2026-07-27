@@ -1,0 +1,20 @@
+# apache-airflow is installed separately (see Dockerfile / README) using its
+# official constraints file, e.g.:
+#   pip install "apache-airflow==2.9.1" \
+#     --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.9.1/constraints-3.11.txt"
+# Installing it here without that constraints file resolves an incompatible
+# SQLAlchemy version and breaks the install — pandas/psycopg2/etc. below are
+# then installed against the SAME constraints file so pip can't upgrade
+# SQLAlchemy out from under Airflow.
+apache-airflow==2.9.1
+
+pandas==2.2.2
+numpy==1.26.4
+psycopg2-binary==2.9.9
+python-dotenv==1.0.1
+pytest==8.2.0
+great_expectations==0.18.19
+streamlit==1.35.0
+plotly==5.22.0
+pyyaml==6.0.1
+alembic==1.13.1
